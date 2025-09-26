@@ -312,32 +312,31 @@ if (submitButton) {
         }, 2000);
     });
 
-    // Portfolio filter
-const filterBtns = document.querySelectorAll(".filter-btn");
-const portfolioItems = document.querySelectorAll(".portfolio-item");
+// =========================
+// Portfolio Kerja Filtering
+// =========================
+document.addEventListener("DOMContentLoaded", () => {
+  const filterButtons = document.querySelectorAll(".filter-btn");
+  const portfolioCards = document.querySelectorAll(".portfolio-card");
 
-// default: tampilkan semua
-function showAll() {
-  portfolioItems.forEach(item => item.style.display = "block");
-}
-showAll();
+  filterButtons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      // remove active class
+      filterButtons.forEach((b) => b.classList.remove("active"));
+      btn.classList.add("active");
 
-filterBtns.forEach(btn => {
-  btn.addEventListener("click", () => {
-    // hapus active dari semua tombol
-    filterBtns.forEach(b => b.classList.remove("active"));
-    btn.classList.add("active");
+      const filter = btn.getAttribute("data-filter");
 
-    const filter = btn.getAttribute("data-filter");
-
-    portfolioItems.forEach(item => {
-      if (filter === "all" || item.classList.contains(filter)) {
-        item.style.display = "block";
-      } else {
-        item.style.display = "none";
-      }
+      portfolioCards.forEach((card) => {
+        if (filter === "all" || card.classList.contains(filter)) {
+          card.style.display = "block";
+        } else {
+          card.style.display = "none";
+        }
+      });
     });
   });
 });
+
 
 }
