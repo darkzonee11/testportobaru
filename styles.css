@@ -222,17 +222,20 @@ body {
     align-items: center;
 }
 
-.image-placeholder {
+.profile-photo {
     width: 300px;
     height: 300px;
-    background: var(--gradient-primary);
     border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 8rem;
-    color: white;
+    object-fit: cover;
+    object-position: center;
     box-shadow: var(--shadow-xl);
+    border: 6px solid white;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.profile-photo:hover {
+    transform: scale(1.05);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
 }
 
 .scroll-indicator {
@@ -866,10 +869,9 @@ section {
         font-size: 0.9rem;
     }
     
-    .image-placeholder {
+    .profile-photo {
         width: 250px;
         height: 250px;
-        font-size: 6rem;
     }
     
     .skill-item {
