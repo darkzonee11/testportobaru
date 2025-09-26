@@ -296,6 +296,8 @@ document.querySelectorAll('.btn').forEach(button => {
     });
 });
 
+
+
 // Add loading states to form submission
 const submitButton = document.querySelector('button[type="submit"]');
 if (submitButton) {
@@ -309,4 +311,33 @@ if (submitButton) {
             this.disabled = false;
         }, 2000);
     });
+
+    // Portfolio filter
+const filterBtns = document.querySelectorAll(".filter-btn");
+const portfolioItems = document.querySelectorAll(".portfolio-item");
+
+// default: tampilkan semua
+function showAll() {
+  portfolioItems.forEach(item => item.style.display = "block");
+}
+showAll();
+
+filterBtns.forEach(btn => {
+  btn.addEventListener("click", () => {
+    // hapus active dari semua tombol
+    filterBtns.forEach(b => b.classList.remove("active"));
+    btn.classList.add("active");
+
+    const filter = btn.getAttribute("data-filter");
+
+    portfolioItems.forEach(item => {
+      if (filter === "all" || item.classList.contains(filter)) {
+        item.style.display = "block";
+      } else {
+        item.style.display = "none";
+      }
+    });
+  });
+});
+
 }
