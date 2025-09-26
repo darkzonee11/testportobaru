@@ -224,6 +224,17 @@ window.addEventListener('scroll', () => {
     });
 });
 
+// Open Modal
+function openModal(id) {
+  document.getElementById(id).style.display = "block";
+}
+
+// Close Modal
+function closeModal(id) {
+  document.getElementById(id).style.display = "none";
+}
+
+
 // Add loading animation
 window.addEventListener('load', () => {
     document.body.classList.add('loaded');
